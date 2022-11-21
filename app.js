@@ -63,12 +63,23 @@ const vm = new Vue({
         removerItem(index){
             this.carrinho.splice(index,1);
 
-        }
-       
-
+        }  
+    },
+    watch:{
+        carrinho(){
+            window.localStorage.carrinho = JSON.stringify(this.carrinho);
+        },
+        checarLocalStorage(){
+            if(window.localStorage.carrinho){
+                this.carrinho = JSON.parse(window.localStorage.carrinho);
         
+            }
+
+        }
+
     },
     created() {
         this.fetchProdutos();
+        this.checarLocalStorage();
     },
 })
