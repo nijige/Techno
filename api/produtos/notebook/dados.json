@@ -5,6 +5,7 @@
     "descricao":"  todas estas questões, devidamente ponderadas, orçamento setorial",
     " estoque":12,
     "img": "./api/produtos/notebook/notebook-foto.jpg",
+    "estoque": 10,
     "avaliacoes":[
         {
             "nome": "Geane",
