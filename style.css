@@ -255,21 +255,21 @@ body {
 
 /* CARRINHO */
 
-.carrinho_modal::before{
+.carrinho_modal::before {
   content: "";
   position: fixed;
-  top:0px;
+  top: 0px;
   left: 0px;
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, .5);
 }
 
-.carrinho_modal{
+.carrinho_modal {
   position: absolute;
   display: flex;
   flex-direction: column;
-  top:0px;
+  top: 0px;
   left: 0px;
   width: 100%;
   padding: 20px;
@@ -277,11 +277,11 @@ body {
 
 }
 
-.carrinho_modal.ativo{
+.carrinho_modal.ativo {
   display: block;
 }
 
-.carrinho_container{
+.carrinho_container {
   position: relative;
   margin: 80px auto;
   background: #ffffff;
@@ -291,31 +291,32 @@ body {
 
 }
 
-.carrinho_item{
+.carrinho_item {
   display: grid;
-  grid-template-columns: 1fr  1fr 50px;
+  grid-template-columns: 1fr 1fr 50px;
   border-bottom: 1px solid rgba(0, 0, 0, .1);
   padding: 15px 0;
 
 }
 
-.carrinho_titulo{
+.carrinho_titulo {
   margin-bottom: 10px;
   padding-bottom: 20px;
   border-bottom: 2px solid #000000;
-  
+
 }
 
-.carrinho_remover{
+.carrinho_remover {
   border: none;
   font-size: 1rem;
   cursor: pointer;
 }
 
-.carrinho_preco{
+.carrinho_preco {
   text-align: right;
 }
-.carrinho_total{
+
+.carrinho_total {
   text-align: right;
   padding: 10px 50px 10px 0;
   margin-bottom: 20px;
@@ -324,7 +325,7 @@ body {
 }
 
 
-.carrinho_fechar{
+.carrinho_fechar {
   border-radius: 50%;
   border: 2px solid #000;
   width: 40px;
@@ -337,7 +338,8 @@ body {
   cursor: pointer;
 
 }
-.carrinho_finalizar{
+
+.carrinho_finalizar {
   display: block;
   margin-left: auto;
   background: #000;
@@ -347,5 +349,72 @@ body {
   padding: 10px 25px;
   border: none;
   font-family: "Noto Serif";
+
+}
+
+/* RESPONSIVO */
+
+@media screen and (max-width:900px) {
+  #app {
+    padding: 0 10px;
+  }
+
+  .produtos {
+    margin-top: 40px;
+  }
+
+  .produto {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    margin: 30px auto;
+  }
+
+  .produto_inf {
+    padding: 20px;
+  }
+
+  .produto_img {
+    max-width: 100%;
+  }
+
+  .produto_titulo {
+    font-size: 1.5rem;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal_container {
+    grid-gap: 20px;
+    background: #ffffff;
+    padding: 10px 0;
+
+  }
+
+  .modal_img img {
+    width: 100%;
+    max-width: initial;
+  }
+
+  .modal_dados {
+    grid-column: 1;
+    padding: 10px;
+  }
+  .modal_btn{
+    margin-top: 20px;
+  }
+
+  .avaliacoes{
+
+    grid-column: 1;
+    padding: 10px;
+  }
+  .carrinho_modal{
+    padding: 10px;
+
+  }
+
 
 }
