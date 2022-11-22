@@ -57,7 +57,7 @@ const vm = new Vue({
 
     clickForaCarrinho({ target, currentTarget }) {
       if (target === currentTarget) this.carrinhoAtivo = false;
-    },  
+    },
 
     adicionarItem() {
       this.produto.estoque--;
@@ -68,41 +68,53 @@ const vm = new Vue({
     removerItem(index) {
       this.carrinho.splice(index, 1);
     },
+
     checarLocalStorage() {
       if (window.localStorage.carrinho)
         this.carrinho = JSON.parse(window.localStorage.carrinho);
     },
-    alerta(mensagem){
+    // verificação mais simplicada 
+    compararEstoque() {
+      const items = this.carrinho.filter(({id}) => id === this.produto.id) 
+      this.produto.estoque -= items.length;
+      console.log(items);
+      
+      
+      // {
+      
+      //   // console.log(id);
+      //   // if (item === this.produto.id) {
+      //   //   return true;
+      //   // }
+      // });
+      // // this.produto.estoque = this.produto.estoque - items.length;
+      // // console.log(items);
+    },
+    alerta(mensagem) {
       this.mensagemAlerta = mensagem;
       this.alertaAtivo = true;
-      setTimeout( () => {
-        this.alertaAtivo = false; 
-
+      setTimeout(() => {
+        this.alertaAtivo = false;
       }, 1500);
     },
-    router(){
+    router() {
       const hash = document.location.hash;
-      if(hash)
-      this.fetchProduto(hash.replace("#", ""));
-
-    }
-  
+      if (hash) this.fetchProduto(hash.replace("#", ""));
+    },
   },
   watch: {
-    produto(){
+    produto() {
       document.title = this.produto.nome || "Techno";
-       const hash = this.produto.id || "";
-      history.pushState(null,null, `#${hash}`)
-
+      const hash = this.produto.id || "";
+      history.pushState(null, null, `#${hash}`);
+      if (this.produto) {
+        this.compararEstoque();
+      }
     },
     carrinho() {
       window.localStorage.carrinho = JSON.stringify(this.carrinho);
     },
-
-    
   },
-
-  
 
   created() {
     this.fetchProdutos();
